@@ -11,6 +11,7 @@ namespace aula_youtube_tabelas_query_bruta.Models.Dominio
         }
 
         [Required]
+        [Key]
         public int Id { get; set; }
 
         [Required]

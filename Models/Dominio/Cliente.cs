@@ -7,6 +7,7 @@ namespace aula_youtube_tabelas_query_bruta.Models.Dominio
     public class Cliente
     {
         [Required]
+        [Key]
         public int Id { get; set; }
 
         [Required]
