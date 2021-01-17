@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace aula_youtube_tabelas_query_bruta.Models.Dominio
+namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
 {
     public class Produto
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using aula_youtube_tabelas_query_bruta.Models.Dominio;
+using aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades;
 using aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database;
 
 namespace aula_youtube_tabelas_query_bruta.Controllers

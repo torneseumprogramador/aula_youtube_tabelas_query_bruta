@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using aula_youtube_tabelas_query_bruta.Models.Dominio;
+using aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 

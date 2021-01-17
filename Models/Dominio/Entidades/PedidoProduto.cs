@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace aula_youtube_tabelas_query_bruta.Models.Dominio
+namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
 {
     public class PedidoProduto
     {
