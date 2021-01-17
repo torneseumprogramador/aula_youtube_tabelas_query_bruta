@@ -6,3 +6,5 @@
 
 -- dotnet tool install -g dotnet-aspnet-codegenerator
 -- dotnet aspnet-codegenerator controller -name ClientesController -m Cliente -dc ContextoLoja1 --relativeFolderPath Controllers --useDefaultLayout
+-- dotnet aspnet-codegenerator controller -name ProdutosController -m Produto -dc ContextoLoja1 --relativeFolderPath Controllers --useDefaultLayout
+-- dotnet aspnet-codegenerator controller -name PedidosController -m Pedido -dc ContextoLoja1 --relativeFolderPath Controllers --useDefaultLayout

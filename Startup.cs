@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Linq;
 
 namespace aula_youtube_tabelas_query_bruta
 {
@@ -24,6 +28,8 @@ namespace aula_youtube_tabelas_query_bruta
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            JToken jAppSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
+            services.AddDbContext<ContextoLoja1>(options => options.UseNpgsql(jAppSettings["ConexaoSql"].ToString()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

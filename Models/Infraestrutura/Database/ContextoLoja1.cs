@@ -8,6 +8,12 @@ namespace aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database
 {
     public class ContextoLoja1: DbContext
     {
+        public ContextoLoja1(DbContextOptions<ContextoLoja1> options): base(options)
+        {
+        }
+
+        public ContextoLoja1(){ }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             JToken jAppSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
