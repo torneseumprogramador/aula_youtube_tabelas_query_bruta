@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database.Repositorios;
 
 namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
 {
@@ -21,7 +22,14 @@ namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
         [Required]
         [Column("IdCliente")]
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; private set; }
+        public Cliente Cliente {get;private set;}
+        // public Cliente Cliente 
+        // { 
+        //     get
+        //     {
+        //         return new ClienteRepositorio().BuscaClientePorId(this.ClienteId);
+        //     }
+        // }
         [Required]
         public double Valor { get; set; }
 

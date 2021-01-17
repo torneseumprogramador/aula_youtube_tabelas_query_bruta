@@ -19,24 +19,28 @@ namespace aula_youtube_tabelas_query_bruta.Controllers
             _context = context;
         }
 
-        // GET: Pedidos
-        // public IActionResult Index()
+        // public async Task<IActionResult> Index()
         // {
-        //     return View(_context.Pedidos.FromSqlRaw("SELECT 'Id', 'IdCliente', 'Valor', 'Data' FROM 'Pedidos' where 'Pedidos'.'Id'=1").ToList());
+        //     return View(await _context.Pedidos.ToListAsync());
         // }
 
-        public async Task<IActionResult> Index()
-        {
-            var lista = await _context.Pedidos.Include(p => p.Cliente).ToListAsync();
-            return View(lista);
-        }
+        // public IActionResult Index()
+        // {
+        //     return View(_context.Pedidos.FromSqlRaw("SELECT \"Id\", \"IdCliente\", \"Valor\", \"Data\" FROM \"Pedidos\"").Include(p => p.Cliente).ToList());
+        // }
+
+        // public async Task<IActionResult> Index()
+        // {
+        //     var lista = await _context.Pedidos.Include(p => p.Cliente).ToListAsync();
+        //     return View(lista);
+        // }
 
         // public async Task<IActionResult> Index()
         // {
         //     var lista = await _context.Clientes.Join(
         //     _context.Pedidos,
         //         cliente => cliente.Id,
-        //         pedido => pedido.IdCliente,
+        //         pedido => pedido.ClienteId,
         //         (cliente, pedido) => new Models.Dominio.Views.Pedido
         //         {
         //             Id = pedido.Id,
@@ -49,29 +53,29 @@ namespace aula_youtube_tabelas_query_bruta.Controllers
         //     return View(lista);
         // }
 
-        // public IActionResult Index()
-        // {
-        //     var lista = new List<Models.Dominio.Views.Pedido>();
-        //     using (var command = _context.Database.GetDbConnection().CreateCommand())
-        //     {
-        //         command.CommandText = "SELECT \"Pedidos\".\"Id\", \"Clientes\".\"Nome\" as \"Cliente\", \"Pedidos\".\"Valor\", \"Pedidos\".\"Data\" FROM \"Pedidos\" inner join \"Clientes\" on \"Clientes\".\"Id\" = \"Pedidos\".\"IdCliente\" where \"Pedidos\".\"Id\"=1";
-        //         _context.Database.OpenConnection();
-        //         using (var result = command.ExecuteReader())
-        //         {
-        //             while (result.Read())
-        //             {
-        //                 lista.Add(new Models.Dominio.Views.Pedido{
-        //                     Id = Convert.ToInt32(result["Id"]),
-        //                     Cliente = result["Cliente"].ToString(),
-        //                     Valor = Convert.ToDouble(result["Valor"]),
-        //                     Data = Convert.ToDateTime(result["Data"]),
-        //                 });
-        //             }
-        //         }
-        //     }
+        public IActionResult Index()
+        {
+            var lista = new List<Models.Dominio.Views.Pedido>();
+            using (var command = _context.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "SELECT \"Pedidos\".\"Id\", \"Clientes\".\"Nome\" as \"Cliente\", \"Pedidos\".\"Valor\", \"Pedidos\".\"Data\" FROM \"Pedidos\" inner join \"Clientes\" on \"Clientes\".\"Id\" = \"Pedidos\".\"IdCliente\"";
+                _context.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    while (result.Read())
+                    {
+                        lista.Add(new Models.Dominio.Views.Pedido{
+                            Id = Convert.ToInt32(result["Id"]),
+                            Cliente = result["Cliente"].ToString(),
+                            Valor = Convert.ToDouble(result["Valor"]),
+                            Data = Convert.ToDateTime(result["Data"]),
+                        });
+                    }
+                }
+            }
 
-        //     return View(lista);
-        // }
+            return View(lista);
+        }
 
         // public IActionResult Index()
         // {

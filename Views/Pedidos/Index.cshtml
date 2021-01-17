@@ -1,5 +1,5 @@
-@model IEnumerable<aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades.Pedido>
-@* @model IEnumerable<aula_youtube_tabelas_query_bruta.Models.Dominio.Views.Pedido> *@
+@* @model IEnumerable<aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades.Pedido> *@
+@model IEnumerable<aula_youtube_tabelas_query_bruta.Models.Dominio.Views.Pedido>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,7 +14,7 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                Cliente
+               Cliente
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Valor)
@@ -32,7 +32,7 @@
                 @item.Id
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                @Html.DisplayFor(modelItem => item.Cliente)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Valor)
