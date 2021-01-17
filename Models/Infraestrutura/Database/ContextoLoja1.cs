@@ -1,9 +1,10 @@
 using System;
 using System.IO;
+using aula_youtube_tabelas_query_bruta.Models.Dominio;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 
-namespace aula_youtube_tabelas_query_bruta.Models
+namespace aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database
 {
     public class ContextoLoja1: DbContext
     {

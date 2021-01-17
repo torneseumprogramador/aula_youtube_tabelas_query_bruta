@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using aula_youtube_tabelas_query_bruta.Models;
+using aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database;
 
 namespace aula_youtube_tabelas_query_bruta.Migrations
 {

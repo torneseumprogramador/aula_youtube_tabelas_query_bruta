@@ -1,6 +1,6 @@
 using System;
 
-namespace aula_youtube_tabelas_query_bruta.Models
+namespace aula_youtube_tabelas_query_bruta.Models.Infraestrutura
 {
     public class ErrorViewModel
     {

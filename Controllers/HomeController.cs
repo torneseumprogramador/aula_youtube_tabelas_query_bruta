@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using aula_youtube_tabelas_query_bruta.Models;
+using aula_youtube_tabelas_query_bruta.Models.Infraestrutura;
 
 namespace aula_youtube_tabelas_query_bruta.Controllers
 {
