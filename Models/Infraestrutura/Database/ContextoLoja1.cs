@@ -23,7 +23,7 @@ namespace aula_youtube_tabelas_query_bruta.Models.Infraestrutura.Database
         
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
         
-            modelBuilder.Entity<Pedido>().HasKey(p => new { p.Id, p.IdCliente });
+            modelBuilder.Entity<Pedido>().HasKey(p => new { p.Id, p.ClienteId });
             modelBuilder.Entity<PedidoProduto>().HasKey(p => new { p.IdPedido, p.IdProduto });
         } 
 

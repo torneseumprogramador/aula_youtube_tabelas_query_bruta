@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
+namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Views
 {
-    public record PedidoView
+    public record Pedido
     {
         public int Id { get; set; }
         public string Cliente { get; set; }

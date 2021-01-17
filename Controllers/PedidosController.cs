@@ -20,10 +20,81 @@ namespace aula_youtube_tabelas_query_bruta.Controllers
         }
 
         // GET: Pedidos
+        // public IActionResult Index()
+        // {
+        //     return View(_context.Pedidos.FromSqlRaw("SELECT 'Id', 'IdCliente', 'Valor', 'Data' FROM 'Pedidos' where 'Pedidos'.'Id'=1").ToList());
+        // }
+
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pedidos.ToListAsync());
+            var lista = await _context.Pedidos.Include(p => p.Cliente).ToListAsync();
+            return View(lista);
         }
+
+        // public async Task<IActionResult> Index()
+        // {
+        //     var lista = await _context.Clientes.Join(
+        //     _context.Pedidos,
+        //         cliente => cliente.Id,
+        //         pedido => pedido.IdCliente,
+        //         (cliente, pedido) => new Models.Dominio.Views.Pedido
+        //         {
+        //             Id = pedido.Id,
+        //             Cliente = cliente.Nome,
+        //             Data = pedido.Data,
+        //             Valor = pedido.Valor
+        //         }
+        //     ).ToListAsync();
+
+        //     return View(lista);
+        // }
+
+        // public IActionResult Index()
+        // {
+        //     var lista = new List<Models.Dominio.Views.Pedido>();
+        //     using (var command = _context.Database.GetDbConnection().CreateCommand())
+        //     {
+        //         command.CommandText = "SELECT \"Pedidos\".\"Id\", \"Clientes\".\"Nome\" as \"Cliente\", \"Pedidos\".\"Valor\", \"Pedidos\".\"Data\" FROM \"Pedidos\" inner join \"Clientes\" on \"Clientes\".\"Id\" = \"Pedidos\".\"IdCliente\" where \"Pedidos\".\"Id\"=1";
+        //         _context.Database.OpenConnection();
+        //         using (var result = command.ExecuteReader())
+        //         {
+        //             while (result.Read())
+        //             {
+        //                 lista.Add(new Models.Dominio.Views.Pedido{
+        //                     Id = Convert.ToInt32(result["Id"]),
+        //                     Cliente = result["Cliente"].ToString(),
+        //                     Valor = Convert.ToDouble(result["Valor"]),
+        //                     Data = Convert.ToDateTime(result["Data"]),
+        //                 });
+        //             }
+        //         }
+        //     }
+
+        //     return View(lista);
+        // }
+
+        // public IActionResult Index()
+        // {
+        //     var lista = _context.Clientes.Join(
+        //     _context.Pedidos,
+        //         cliente => cliente.Id,
+        //         pedido => pedido.IdCliente,
+        //         (cliente, pedido) => new aula_youtube_tabelas_query_bruta.Models.Dominio.Views.Pedido
+        //         {
+        //             Id = pedido.Id,
+        //             Cliente = cliente.Nome,
+        //             Data = pedido.Data,
+        //             Valor = pedido.Valor
+        //         }
+        //     ).ToList();
+
+        //     return View(lista);
+        // }
+
+        // public async Task<IActionResult> Index()
+        // {
+        //     return View(await _context.Pedidos.ToListAsync());
+        // }
 
         // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)

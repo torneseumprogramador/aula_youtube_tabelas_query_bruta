@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
 {
@@ -13,8 +15,13 @@ namespace aula_youtube_tabelas_query_bruta.Models.Dominio.Entidades
         [Key]
         public int Id { get; set; }
 
+        // [Required]
+        // public int IdCliente { get; set; }
+
         [Required]
-        public int IdCliente { get; set; }
+        [Column("IdCliente")]
+        public int ClienteId { get; set; }
+        public Cliente Cliente { get; private set; }
         [Required]
         public double Valor { get; set; }
 
